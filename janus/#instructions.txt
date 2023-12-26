@@ -1,0 +1,25 @@
+sudo apt-get update
+bash install_dependencies.sh
+
+bash install_libnice.sh
+bash install_libsrtp.sh
+bash install_usrsctp.sh
+bash install_libwebsockets.sh
+
+bash install_mqtt.sh
+sudo apt-get install libnanomsg-dev
+bash install_rabbitmqc.sh
+
+git clone https://github.com/meetecho/janus-gateway.git
+cd janus-gateway
+sh autogen.sh
+
+./configure --prefix=/opt/janus
+make
+make install
+
+make configs
+
+/opt/janus/bin/janus --help
+
+/opt/janus/bin/janus
